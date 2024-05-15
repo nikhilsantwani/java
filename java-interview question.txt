@@ -1,0 +1,116 @@
+//(1) how to remove dublicate element in string.
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String = ");
+        String s = sc.nextLine();
+        System.out.println(s);
+        StringBuilder result = new StringBuilder();
+        for (int i=0;i<s.length();i++) {
+            char c = s.charAt(i);
+            boolean isDuplicate = false;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (result.charAt(j)==c){
+                    isDuplicate=true;
+                    break;
+                }
+            }
+            if (!isDuplicate){
+                result.append(c);
+            }
+        }
+        System.out.println("String after removing duplicates: " + result.toString());
+    }
+}
+
+//(2) how to reverse a string
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("enter string = ");
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String sp = "";
+        for (int i=s.length()-1;i>=0;i--){
+            sp=sp+s.charAt(i);
+        }
+        System.out.println(sp);
+    }
+}
+
+//(3) reverse a string like welcome to java world ==> world java to welcome
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "welcome to java world";
+        String[] slit = str.split("");
+        for (int i=slit.length-1;i>=0;i--){
+            System.out.print(slit[i]+" ");
+        }
+    }
+}
+
+//(4) check a string is pallindrom or not
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter string = ");
+        String s = sc.next();
+        String sp= "";
+        for (int i=s.length()-1;i>=0;i--){
+            sp=sp+s.charAt(i);
+        }
+        boolean isPallidrom = true;
+        for (int j=0;j<s.length();j++){
+            if (sp.charAt(j)!=s.charAt(j)){
+                isPallidrom=false;
+                break;
+            }
+        }
+        if (isPallidrom){
+            System.out.println("String is pallindrom ");
+        }
+        else {
+            System.out.println("not pallindrom ");
+        }
+    }
+}
+
+//(5) check Strings are Anagrams
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String 1 = ");
+        String s = sc.next();
+        System.out.println("Enter String 2 = ");
+        String sp = sc.next();
+        char[] c = s.toCharArray();
+        char[] cp = sp.toCharArray();
+
+        Arrays.sort(c);
+        Arrays.sort(cp);
+        for (int j=0;j<s.length();j++){
+            if (s.length()!=sp.length()){
+                System.out.println("is not Anagram");
+                break;
+            }
+        }
+        boolean isAnagram = true;
+            for (int i=0;i<s.length();i++){
+                if (c[i] != cp[i]){
+                    isAnagram=false;
+                    break;
+                }
+            }
+        if (isAnagram) {
+            System.out.println("Anagram");
+        } else {
+            System.out.println("not Anagram");
+        }
+    }
+}
