@@ -1,0 +1,97 @@
+**(3)reverse String
+class Reverse
+{
+    public static String reverseWord(String str)
+    {
+        char[] c = new char[str.length()];
+        for(int i=0;i<str.length();i++){
+            c[i] = str.charAt(str.length() - 1 - i);
+        }
+//**
+               return new String(c);
+//**
+    }
+    public static void main(String[] args) {
+        String str = "ulpztspw";
+        System.out.print(reverseWord(str));
+    }
+}
+
+
+(4) missing elements in array
+import java.util.*;
+class Solution {
+   static int missingNumber(int array[], int n) {
+        int sum=0;
+        int c_sum=0;
+        int missing=0;
+        for (int i=1;i<=n;i++){
+            sum+=i;
+        }
+        for (int i=0;i< array.length;i++){
+            c_sum+=array[i];
+        }
+       missing=sum-c_sum;
+        return missing;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter size = ");
+        int size = sc.nextInt();
+        int[] a = new int[size];
+        System.out.println("Enter Elements = ");
+        for (int i=0;i<a.length;i++){
+            a[i] = sc.nextInt();
+        }
+        System.out.println("Enter n = ");
+        int n = sc.nextInt();
+        System.out.println(missingNumber(a,n));
+    }
+}
+
+// 
+(5) => Find duplicate elements
+import java.util.*;
+
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int[] count = new int[n];
+        
+        // Count occurrences of each element
+        for (int i = 0; i < n; i++) {
+            count[arr[i]]++;
+        }
+        
+        // Collect elements that appear more than once
+        for (int i = 0; i < n; i++) {
+            if (count[i] > 1) {
+                result.add(i);
+            }
+        }
+        
+        // If no duplicate is found, add -1 to the result
+        if (result.isEmpty()) {
+            result.add(-1);
+        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter size = ");
+        int size = sc.nextInt();
+        int[] a = new int[size];
+        System.out.println("Enter Elements = ");
+        for (int i = 0; i < a.length; i++) {
+            a[i] = sc.nextInt();
+        }
+        
+        ArrayList<Integer> duplicates = duplicates(a, size);
+        for (int num : duplicates) {
+            System.out.print(num + " ");
+        }
+    }
+}
