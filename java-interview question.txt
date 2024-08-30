@@ -1,4 +1,4 @@
-//(1) how to remove dublicate element in string.
+//1) how to remove dublicate element in string.
 
 import java.util.*;
 public class Main {
